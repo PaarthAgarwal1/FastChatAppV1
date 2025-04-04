@@ -112,7 +112,7 @@ const ChatList = () => {
         }
       `}</style>
 
-      {add && <AddUser />}
+      {/* {add && <AddUser />} */}
     </div>
   );
 };

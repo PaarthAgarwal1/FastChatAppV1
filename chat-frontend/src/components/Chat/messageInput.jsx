@@ -141,7 +141,7 @@ const MessageInput = () => {
     };
 
     return (
-        <div className="p-2 sm:p-4 w-full border-t border-slate-500">
+        <div className="p-2 sm:p-4 w-full border-t border-slate-500 ">
             {filePreview && (
                 <div className="mb-2 sm:mb-3 flex items-center gap-2 overflow-x-auto">
                     <div className="relative p-2 border border-gray-300 rounded-lg bg-gray-800">

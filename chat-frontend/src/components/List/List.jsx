@@ -14,7 +14,7 @@ const List = ({ setUpdateProfile }) => {
   }, [authUser, checkAuth]);
   
   return (
-    <div className="basis-1/4 flex flex-col">
+    <div className="basis-1/4 flex flex-col relative">
       <UserInfo setUpdateProfile={setUpdateProfile} setShow={setShow} />
       {show ? <Notifications /> : <ChatList />}
       <Sidebar/>
