@@ -10,6 +10,7 @@ const friendRequestRoutes = require('./routes/freindRequestRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const blockRoutes = require('./routes/blockRoutes');
 const eventRoutes = require('./routes/eventsRoutes');
+const statusRoutes = require('./routes/statusRoutes');
 const { app, server } = require('./config/socket');
 const { startEventNotificationCron } = require('./services/cronService');
 
@@ -35,6 +36,7 @@ app.use('/api/friends', friendRequestRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/blocked', blockRoutes);
 app.use('/api/events', eventRoutes);
+app.use('/api/status', statusRoutes);
 
 // Start cron jobs
 startEventNotificationCron();
