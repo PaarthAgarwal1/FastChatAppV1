@@ -7,6 +7,7 @@ import MessageSkeleton from "./messageSkeleton";
 import { formatMessageTime } from "../../lib/utils";
 import { useAuthStore } from "../../store/useAuthStore";
 import { FaFileAlt, FaMusic } from 'react-icons/fa';
+import LocationMap from "./locationMap";
 
 const Chat = () => {
   const { selectedUser, isMessageLoading, messages, getMessages, subscribeToMessage, unsubscribeToMessage } = useChatStore();
@@ -15,6 +16,9 @@ const Chat = () => {
   const endRef = useRef(null);
 
   const isBlockedBySelectedUser = selectedUser?.blocked?.includes(authUser._id);
+  const isGoogleMapsUrl = (text) => {
+    return text && text.startsWith("https://www.google.com/maps");
+  };
 
   useEffect(() => {
     if (!selectedUser) return;
@@ -99,16 +103,22 @@ const Chat = () => {
     }
 
     if (message.text) {
-      if (message.text.startsWith("https://www.google.com/maps")) {
+      if (isGoogleMapsUrl(message.text)) {
         return (
-          <a
-            href={message.text}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 underline text-sm"
-          >
-            📍 View Location
-          </a>
+          <div className="flex flex-col gap-2">
+            <LocationMap 
+              locationUrl={message.text} 
+              className="w-64 h-48 sm:w-72 sm:h-56 rounded-lg overflow-hidden"
+            />
+            <a
+              href={message.text}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 underline text-sm text-center"
+            >
+              📍 Open in Google Maps
+            </a>
+          </div>
         );
       }
       return (

@@ -78,7 +78,7 @@ const ChatList = () => {
                   src={
                     friend?.blocked?.includes(authUser._id)
                       ? "/avatar.png"
-                      : friend.profile_picture || "/default-avatar.png"
+                      : friend.profile_picture || "/avatar.png"
                   }
                   alt="Avatar"
                 />
