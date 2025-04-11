@@ -14,10 +14,15 @@ const List = ({ setUpdateProfile }) => {
   }, [authUser, checkAuth]);
   
   return (
-    <div className="basis-1/4 flex flex-col relative">
+    <div className="w-1/4 flex flex-col relative">
       <UserInfo setUpdateProfile={setUpdateProfile} setShow={setShow} />
+      <div className="flex-1 overflow-y-auto custom-scrollbar">
       {show ? <Notifications /> : <ChatList />}
+      </div>
+      <div className="mt-auto">
+
       <Sidebar/>
+      </div>
     </div>
   );
 };

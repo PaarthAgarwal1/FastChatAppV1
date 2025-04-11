@@ -185,7 +185,10 @@ const Chat = () => {
         ))}
         <div ref={endRef}></div>
       </div>
+      <div className="mt-auto">
+
       <MessageInput />
+      </div>
     </div>
   );
 };

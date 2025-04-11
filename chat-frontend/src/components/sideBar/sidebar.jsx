@@ -6,7 +6,7 @@ const Sidebar = () => {
   const { logout } = useAuthStore();
 
   return (
-    <div className="absolute bottom-0 w-full bg-gray-900 text-white text-4xl shadow-lg flex justify-end items-center rounded-bl p-4">
+    <div className=" w-full bg-gray-900 text-white text-4xl shadow-lg flex justify-end items-center rounded-bl p-4">
       <button className="p-1 hover:bg-gray-700 rounded-md transition">
         <IoMdSettings className="text-3xl" />
       </button>
